@@ -1,8 +1,37 @@
-.navbar
-{
-    font-family: Calibri;
-}
+
 
 .i {
     font-family: Calibri;
+}
+
+
+
+.navbar {
+    width: 100%;
+    background-color: #060606;
+    overflow: auto;
+    font-family: Calibri;
+}
+
+.navbar a {
+    float: left;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.navbar a:hover {
+    background-color: #666666;
+}
+
+.active {
+    background-color: #4CAF50;
+}
+
+@media screen and (max-width: 500px) {
+    .navbar a {
+        float: none;
+        display: block;
+    }
 }

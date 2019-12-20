@@ -2,8 +2,9 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
    <div th:fragment="header-css">
-       <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.3.0/css/bootstrap.min.css}">
-       <link rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/5.10.1/css/font-awesome.min.css}">
+       <!--link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.3.0/css/bootstrap.min.css}"-->
+       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+       <link rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}">
        <link rel="stylesheet" type="text/css" th:href="@{test1.css}" >
        <script type="text/javascript" th:src="@{/webjars/jquery/3.4.0/dist/jquery.min.js}"></script>
        <script type="text/javascript" th:src="@{/webjars/popper.js/1.14.3/umd/popper.min.js}"></script>
@@ -13,11 +14,24 @@
 <body>
     <div th:fragment="header">
         <!--nav class="navbar navbar-expand-sm bg-dark navbar-dark" -->
-        <nav class="navbar navbar-dark bg-dark" role="navigation">
-            <!-- brand -->
-            <a class="navbar-brand" href="#"> © iRegister </a>
-            <a href="#" class="btn btn-light -pull-right"> <span class="fas fa-sign-in-alt"></span> Login </a>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">WebSiteName</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Page 1</a></li>
+                    <li><a href="#">Page 2</a></li>
+                    <li><a href="#">Page 3</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span>Register</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                </ul>
+            </div>
         </nav>
+
     </div>
 </body>
 </html>
