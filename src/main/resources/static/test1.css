@@ -7,9 +7,14 @@
 
 
 .navbar {
-    width: 100%;
+    width: 60%; /* 60% + 20% right + 20% left*/
+    display: inline-block;
+    text-align: center;
+    float: none;
     background-color: #060606;
     overflow: auto;
+    left: 20%;
+    right: 20%;
     font-family: Calibri;
 }
 
@@ -26,12 +31,21 @@
 }
 
 .active {
-    background-color: #4CAF50;
+    background-color: #666666;
 }
 
-@media screen and (max-width: 500px) {
-    .navbar a {
-        float: none;
-        display: block;
-    }
+
+
+.footer {
+    margin-top:-3px;
+    line-height: 1px;
+    font-size: 1em;
+    text-align: center;
+}
+
+hr {
+
+    border: none;
+    height: 1px;
+    background: black;
 }
