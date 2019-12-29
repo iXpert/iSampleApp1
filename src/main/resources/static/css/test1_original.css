@@ -1,7 +1,7 @@
 
 
 .i {
-    font-family: Calibri;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 
@@ -15,7 +15,7 @@
     overflow: auto;
     left: 20%;
     right: 20%;
-    font-family: Calibri;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .navbar a {
@@ -27,25 +27,33 @@
 }
 
 .navbar a:hover {
-    background-color: #666666;
+    background-color: darkgreen;
 }
 
 .active {
-    background-color: #666666;
+    background-color: grey;
 }
-
 
 
 .footer {
-    margin-top:-3px;
+    position: center;
     line-height: 1px;
     font-size: 1em;
     text-align: center;
+    /* margin-top: -1px; */
 }
 
 hr {
-
     border: none;
     height: 1px;
     background: black;
+}
+
+.ul a:hover{
+    background-color: darkgreen;
+}
+
+.container {
+    height: 85vh; /* 85% of vertical height will be for the page while the rest 15% are for the footer */
+    width: 60%;
 }

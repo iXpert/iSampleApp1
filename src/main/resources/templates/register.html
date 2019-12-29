@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>iSampleApp1 title</title>
+    <div th:replace="fragments/header :: header-css" />
+</head>
+<div>
+    <div th:replace="fragments/header :: header" />
+
+    <div class="container">
+        <p/>
+        <p/>
+        <p/>
+
+        <!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+
+
+        <div class="middle-box text-center loginscreen animated fadeInDown">
+            <div>
+
+
+
+                <h4>New User Registration</h4>
+                <!--hr /-->
+                <p/>
+                <p/>
+                <form autocomplete="off" action="#" th:action="@{/register}" th:object="${user}" method="post" class="m-t" role="form" data-toggle="validator">
+
+                    <div th:if="${confirmationMessage}" class="alert alert-success" role="alert" th:text="${confirmationMessage}"></div>
+
+                    <div th:if="${alreadyRegisteredMessage}" class="alert alert-danger" role="alert" th:text="${alreadyRegisteredMessage}"></div>
+
+                    <div th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="validation-message alert alert-danger" role="alert"></div>
+
+                    <div th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" class="validation-message alert alert-danger" role="alert"></div>
+
+                    <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="validation-message alert alert-danger" role="alert"></div>
+
+                    <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="validation-message alert alert-danger" role="alert"></div>
+
+
+                    <div class="form-group input-group has-feedback">
+                        <label th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" class="validation-message"></label>
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </span>
+                        <input type="text" th:field="*{firstName}" placeholder="First Name" class="form-control" required />
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    </div>
+
+                    <div class="form-group input-group has-feedback">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </span>
+                        <input type="text" th:field="*{lastName}" placeholder="Last Name" class="form-control" required />
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    </div>
+
+                    <div class="form-group input-group has-feedback">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-envelope"></span>
+                        </span>
+                        <input type="email" th:field="*{email}" placeholder="Email Address" class="form-control" data-error="This email address is invalid" required />
+                        <span class="glyphicon form-control-feedback" aria-hidden="true"></span>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary block full-width"><i class="fa fa-save"></i> Register</button>
+                    <span />
+                    <button class="btn btn-primary block full-width"><i class="fa fa-close"></i> Cancel </button>
+
+
+
+                </form>
+                <p class="m-t">
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- $$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$ -->
+    </div>
+    </div>
+
+</div>
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>

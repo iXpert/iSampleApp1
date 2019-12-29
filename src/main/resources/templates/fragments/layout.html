@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, initial-scale=1"/>
+
+    <link rel="stylesheet" th:href="@{webjars/bootstrap/3.4.0/css/bootstrap.min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{../../static/css/test1.css}" >
+
+    <title>iRegister Title</title>
+</head>
+<body>
+    <th:block th:replace="header :: header" />
+    <div class="container">
+        <th:block layout:fragment="content" />
+    </div>
+    <th:block th:replace="footer :: footer" />
+</body>
+</html>

@@ -1,18 +1,24 @@
 
 <html xmlns:th="http://www.thymeleaf.org">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <head>
    <div th:fragment="header-css">
-       <!--link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/4.3.0/css/bootstrap.min.css}"-->
-       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-       <link rel="stylesheet" type="text/css" th:href="@{/webjars/font-awesome/4.7.0/css/font-awesome.min.css}">
-       <link rel="stylesheet" type="text/css" th:href="@{test1.css}" >
-       <script type="text/javascript" th:src="@{/webjars/jquery/3.4.0/dist/jquery.min.js}"></script>
-       <script type="text/javascript" th:src="@{/webjars/popper.js/1.14.3/umd/popper.min.js}"></script>
-       <script type="text/javascript" th:src="@{/webjars/bootstrap/4.3.0/js/bootstrap.min.js}"></script>
+       <link rel="stylesheet" th:href="@{webjars/bootstrap/3.4.0/css/bootstrap.min.css}">
+       <link rel="stylesheet" type="text/css" th:href="@{webjars/font-awesome/4.7.0/css/font-awesome.min.css}">
+       <link rel="stylesheet" type="text/css" th:href="@{css/test1.css}">
+       <!--link rel="stylesheet"  type="text/css" th:href="@{css/style.css}"-->
+       <script type="text/javascript" th:src="@{webjars/jquery/3.4.0/dist/jquery.min.js}"></script>
+       <script type="text/javascript" th:src="@{webjars/popper.js/1.14.3/umd/popper.min.js}"></script>
+       <script type="text/javascript" th:src="@{webjars/bootstrap/4.3.0/js/bootstrap.min.js}"></script>
+       <script type="text/javascript" th:src="@{webjars/jquery/1.11.1/jquery.min.js}"></script>
+       <script type="text/javascript" th:src="@{webjars/bootstrap-validator/0.10.2/js/validator.js}"></script>
    </div>
 </head>
 <body>
     <div th:fragment="header">
+        <p/>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark" >
                 <div class="container-fluid">
                     <div class="navbar-header">
@@ -24,8 +30,8 @@
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Register</a></li>
-                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                        <li><a th:href="@{/register}"><span class="glyphicon glyphicon-user"></span> Register</a></li>
+                        <li><a th:href="@{/login}"><span class="glyphicon glyphicon-log-in"></span>  Login</a></li>
                     </ul>
                 </div>
             <!--/nav-->
