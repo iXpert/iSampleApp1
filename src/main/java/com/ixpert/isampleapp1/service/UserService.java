@@ -6,7 +6,8 @@ import com.ixpert.isampleapp1.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("userService")
+//@Service("userService")
+@Service
 public class UserService {
 
     @Autowired

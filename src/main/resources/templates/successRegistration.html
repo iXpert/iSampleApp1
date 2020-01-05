@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>iSampleApp1 title</title>
+    <div th:replace="fragments/header :: header-css" />
+</head>
+<div>
+    <div th:replace="fragments/header :: header" />
+
+    <div class="container">
+        <p/>
+        <p/>
+        <p/>
+        <div class="middle-box text-center loginscreen animated fadeInDown">
+            <div>
+                <h4>Success!</h4>
+                <!--hr /-->
+                <p/>
+                <p/>
+                <div th:if="${confirmationMessage}" class="alert alert-success" role="alert" th:text="${confirmationMessage}"></div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>

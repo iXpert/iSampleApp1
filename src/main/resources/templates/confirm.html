@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <div th:replace="fragments/header :: header-css" />
+    <title>iSampleApp1 title</title>
+</head>
+<div>
+    <div th:replace="fragments/header :: header" />
+
+    <div class="container">
+
+        <p/>
+        <p/>
+        <p/>
+
+        <!-- #########################################-->
+        <div class="middle-box text-center loginscreen animated fadeInDown">
+            <div>
+
+                <h4>Set Your Password</h4>
+
+                <div th:if="${successMessage}" class="alert alert-success" role="alert" th:text="${successMessage}"></div>
+                <div th:if="${errorMessage}" class="alert alert-danger" role="alert" th:text="${errorMessage}"></div>
+                <div th:if="${invalidToken}" class="alert alert-danger" role="alert"   th:text="${invalidToken}"></div>
+
+                <!--form th:if="!${invalidToken}" class="m-t" id="passwordForm" role="form" th:object="${setPassword}" th:action="@{/confirm}" method="post"-->
+                <!--form th:if="!${invalidToken}" class="m-t" id="passwordForm" role="form" action="#" th:object="${setPassword}"   th:action="@{/confirm}" method="post"-->
+
+                <!--form class="m-t" id="passwordForm" role="form" action="/confirm"  method="post"-->
+                <form id="passwordForm" autocomplete="off" action="#" th:action="@{/confirm}"  method="post" class="m-t" role="form" >
+
+                <input type="hidden" name="token" th:value="${confirmationToken}">
+
+                    <div class="form-group input-group">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-lock"></span>
+                        </span>
+
+                        <input name="password" type="password" id="password" placeholder="Password" class="form-control" required />
+                        <span class="glyphicon" aria-hidden="true"></span>
+                    </div>
+
+                    <div class="form-group input-group has-feedback">
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-lock"></span>
+                        </span>
+                        <input type="password" class="form-control" id="signup-password-confirm" placeholder="Confirm Password" name="confirmPassword"
+                               data-fv-notempty="true" data-fv-notempty-message="Please confirm password" data-fv-identical="true" data-fv-identical-field="password" data-fv-identical-message="Both passwords must be identical"/>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary block full-width"><i class="fa fa-save"></i> Save</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- #########################################-->
+    </div>
+
+</div>
+
+<div th:replace="fragments/footer :: footer"/>
+
+    <script>
+        $(document).ready(function () {
+            $('#passwordForm').formValidation({
+                framework: 'bootstrap',
+                icon: {
+                    valid: 'glyphicon glyphicon-ok',
+                    invalid: 'glyphicon glyphicon-remove',
+                    validating: 'glyphicon glyphicon-refresh'
+                },
+                fields: {
+
+                    password: {
+                        validators:{
+                            notEmpty: {
+                                message: 'The password is required'
+                            },
+                            callback: {
+                                callback: function (value, validator, $field) {
+                                    var password = $field.val();
+                                    if (password == ''){
+                                        return true;
+                                    }
+
+                                    var required = zxcvbn(password),
+                                        score = result.score,
+                                        message = result.feedback.warning || 'The password is weak';
+
+                                    // Update the progress bar width and add alert class
+                                    var $bar = $('#strengthBar');
+                                    switch (score) {
+                                        case 0:
+                                            $bar.attr('class','progress-bar progress-bar-danger')
+                                                .css('width','1%');
+                                            break;
+                                        case 1:
+                                            $bar.attr('class','progress-bar progress-bar-danger')
+                                                .css('width','25%');
+                                            break;
+                                        case 2:
+                                            $bar.attr('class','progress-bar progress-bar-danger')
+                                                .css('width','50%');
+                                            break;
+                                        case 3:
+                                            $bar.attr('class','progress-bar progress-bar-danger')
+                                                .css('width','75%');
+                                            break;
+                                        case 4:
+                                            $bar.attr('class','progress-bar progress-bar-danger')
+                                                .css('width','100%');
+                                            break;
+                                    }
+
+                                    // if the score of the password is less than 3 then it is invalid
+                                    if (score < 3){
+                                        return {
+                                            valid: false,
+                                            message: message
+                                        }
+                                    }
+
+                                    return true;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+        });
+    </script>
+
+
+</body>
+</html>

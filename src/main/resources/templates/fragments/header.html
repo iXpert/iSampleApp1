@@ -1,19 +1,24 @@
-
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <head>
    <div th:fragment="header-css">
+       <meta charset="utf-8" />
+       <!--meta http-equiv="X-UA-Compatible" content="IE=edge" /-->
+       <meta name="viewport" content="width=device-width, initial-scale=1"  />
+
        <link rel="stylesheet" th:href="@{webjars/bootstrap/3.4.0/css/bootstrap.min.css}">
        <link rel="stylesheet" type="text/css" th:href="@{webjars/font-awesome/4.7.0/css/font-awesome.min.css}">
-       <link rel="stylesheet" type="text/css" th:href="@{css/test1.css}">
-       <!--link rel="stylesheet"  type="text/css" th:href="@{css/style.css}"-->
+       <link rel="stylesheet" type="text/css" th:href="@{css/test1_original.css}">
+       <!--link rel="stylesheet" type="text/css" th:href="@{css/style1.css}"-->
+       <link rel="stylesheet" type="text/css" th:href="@{css/fv.css}"  />
        <script type="text/javascript" th:src="@{webjars/jquery/3.4.0/dist/jquery.min.js}"></script>
        <script type="text/javascript" th:src="@{webjars/popper.js/1.14.3/umd/popper.min.js}"></script>
        <script type="text/javascript" th:src="@{webjars/bootstrap/4.3.0/js/bootstrap.min.js}"></script>
        <script type="text/javascript" th:src="@{webjars/jquery/1.11.1/jquery.min.js}"></script>
        <script type="text/javascript" th:src="@{webjars/bootstrap-validator/0.10.2/js/validator.js}"></script>
+       <script type="text/javascript" th:src="@{webjars/zxcvbn/4.4.2/dist/zxcvbn.js}"></script>
+       <script type="text/javascript" th:src="@{js/fv.min.js}"></script>
    </div>
 </head>
 <body>
